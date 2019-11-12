@@ -1,5 +1,5 @@
 {
-  "name": "pros-cons",
+  "name": "BooksStore",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

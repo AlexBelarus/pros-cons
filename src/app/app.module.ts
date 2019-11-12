@@ -1,15 +1,49 @@
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbMenuModule,
+  NbIconModule,
+  NbButtonModule
+} from '@nebular/theme';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './layout/header.component';
+import { SidebarToggleComponent } from './layout/sidebar-toggle.component';
+import { SidebarComponent } from './layout/sidebar.component';
+import { SharedModule } from './shared/shared.module';
+import { LIGHT_THEME } from './theme';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, FooterComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    SidebarToggleComponent,
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    CommonModule,
+    NbThemeModule.forRoot({ name: 'light' }, [LIGHT_THEME]),
+    NbLayoutModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbEvaIconsModule,
+    NbIconModule,
+    SharedModule,
+    AppRoutingModule,
+    NbButtonModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
